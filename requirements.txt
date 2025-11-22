@@ -1,0 +1,37 @@
+# O2O Heterogeneous Driver Optimization System - Dependencies
+# Python 3.10+ recommended
+
+# Core numerical computing
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scipy>=1.10.0
+
+# Machine Learning
+xgboost>=1.7.0,<3.0.0
+scikit-learn>=1.2.0
+
+# Optimization solver
+gurobipy>=11.0.0
+
+# Data processing and utilities
+pickle5>=0.0.11; python_version < '3.8'
+
+# System monitoring (for performance tracking)
+psutil>=5.9.0
+
+# Optional: Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Optional: Progress bars
+tqdm>=4.65.0
+
+# Optional: Jupyter support (for notebooks in scripts/)
+jupyter>=1.0.0
+ipykernel>=6.20.0
+nbformat>=5.7.0
+
+# Development tools (optional)
+black>=23.0.0
+flake8>=6.0.0
+pytest>=7.2.0

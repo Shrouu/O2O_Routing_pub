@@ -1,0 +1,56 @@
+# Ignore everything by default at the repository root
+/*
+
+# --- 1. Keep Root Files ---
+!/.gitignore
+!/README.md
+!/requirements.txt
+
+# --- 2. Keep Code Directories ---
+!/src/
+!/scripts/
+
+# --- 3. Keep Data/Log Structure (But ignore contents) ---
+# Un-ignore the folders themselves
+!/data/
+!/logs/
+!/results/
+!/assets/
+
+# Ignore everything INSIDE these folders...
+data/*
+logs/*
+results/*
+
+# ...EXCEPT the .gitkeep file (allows empty folders to be committed)
+!data/.gitkeep
+!logs/.gitkeep
+!results/.gitkeep
+
+# (Optional) If you want to commit the trained models so code can run:
+# Uncomment the lines below if your models are < 100MB
+# !data/xgb_routing_model/
+# !data/xgb_routing_model/*.pkl
+
+# --- 4. Standard Python Ignores (Inside allowed directories) ---
+# Python bytecode/cache
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.pyd
+**/*.so
+
+# Notebook checkpoints
+**/.ipynb_checkpoints/
+
+# OS junk
+**/.DS_Store
+**/Thumbs.db
+
+# Local environments
+**/.venv/
+**/.env
+
+# --- Security / Privacy ---
+# Ignore the actual core implementation files
+*_core.py
