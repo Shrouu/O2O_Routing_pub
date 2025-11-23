@@ -2,13 +2,13 @@
 
 ## Overview
 
-This project implements a sophisticated **Branch-and-Price** algorithm for solving O2O (Online-to-Offline) delivery optimization problems with heterogeneous drivers. The system combines machine learning prediction models with exact optimization algorithms to generate high-quality delivery plans that consider driver experience, geographical familiarity, and other heterogeneity factors.
+This project implements a sophisticated **Branch-and-Price** algorithm for solving O2O (Online-to-Offline) delivery optimization problems with heterogeneous drivers. The system combines machine learning prediction models with exact optimization algorithms to generate high-quality delivery plans that consider heterogeneity factors.
 
 ### Key Features
 
 - **Dual Algorithm Framework**: Supports both Enumerative and Branch-and-Price solution approaches
-- **ML-Enhanced Prediction**: Integrates XGBoost models for intelligent cost prediction of 1-order, 2-order, and 3-order routes
-- **Heterogeneous Driver Modeling**: Incorporates multi-dimensional features including driver experience, geographical familiarity, and driver types
+- **ML-Enhanced Prediction**: Integrates XGBoost models for intelligent cost prediction
+- **Heterogeneous Driver Modeling**: Incorporates multi-dimensional features
 - **High-Performance Parallel Computing**: Multi-process architecture for concurrent prediction, pricing, and caching services
 - **Intelligent Heuristics**: Dynamic RMIP heuristic triggering based on gap monitoring to accelerate convergence
 
@@ -59,11 +59,11 @@ src/
   - Heuristic triggering and termination management
   
 - **`enumerative.py`**: Baseline enumeration algorithm
-  - Exhaustive enumeration of 1/2/3-order route combinations
+  - Exhaustive enumeration of route combinations
   - Integer programming for optimal assignment
 
 - **`node_manager.py`**: Branch tree management
-  - Node selection strategy (Best-First Search)
+  - Node selection strategy
   - Global upper and lower bound maintenance
   - Optimal solution tracking
 
@@ -84,7 +84,6 @@ src/
 - **`predictor.py`**: Machine learning prediction service
   - Multi-process worker pool management
   - Batch prediction for route delays/costs
-  - Supports both arc (arc cost) and seq (sequence ordering) prediction modes
 
 - **`cache.py`**: Intelligent caching service
   - Multi-level caching strategy (sequence cache + arc cost cache)
@@ -98,8 +97,8 @@ src/
 #### 4. **Data (`src/data/`)**
 
 - **`loader.py`**: Data loading and preprocessing
-  - Order data loading (location, due time, environmental features)
-  - Driver data loading (experience, familiarity, driver types)
+  - Order data loading
+  - Driver data loading
   
 - **`structures.py`**: Core data structure definitions
   - `Orders`: Batch order data container
@@ -188,7 +187,6 @@ Solves Resource-Constrained Shortest Path Problem using dynamic programming labe
 - **Transition**: Extend to unvisited order nodes
 - **Dominance Rule**: For same (node, visited set), labels with earlier time and lower cost dominate others
 - **Pruning**: Remove orders exceeding due time from unvisited set
-- **ML Enhancement**: Filter paths not matching optimal sequence using sequence prediction model
 
 ## Results Output
 
